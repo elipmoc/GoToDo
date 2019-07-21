@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <input type="text" name="text">
+        <input type="submit" value="追加">
+    </form>
+    {{range .todoList}}
+    ID:{{.Id}}
+    <br>
+    内容:{{.Text}}
+    <form method="post" action="/{{.Id}}">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="削除">
+    </form>
+    <br>
+    {{end}}
+</body>
+
+</html>
